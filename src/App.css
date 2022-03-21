@@ -19,7 +19,7 @@ input {
 }
 
 body {
-  margin:  3.5rem 0 0 0;
+  margin: 3.5rem 0 0 0;
   background-color: #fff;
   color: hsl(355, 4%, 35%);
 }
@@ -70,4 +70,9 @@ button {
   font-size: 1.25rem;
   margin-bottom: 2.5rem;
   text-align: center;
+}
+.listCards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 2rem;
 }

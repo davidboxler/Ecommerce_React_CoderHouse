@@ -1,7 +1,7 @@
 /* ================= HEADER ================= */
 .header {
     width: 100%;
-    background-color: #8bf3c1;
+    background-color: #32323a;
     position: fixed;
     top: 0;
     left: 0;
@@ -17,7 +17,7 @@
   .nav__logo,
   .nav__close,
   .nav__toggle {
-    color: hsl(355, 4%, 15%);
+    color: #fff;
   }
   .nav__logo {
     display: flex;
@@ -62,12 +62,12 @@
     row-gap: 1.5rem;
   }
   .nav__link {
-    color: hsl(355, 4%, 15%);
+    color: #fff;
     font-weight: 500;
     transition: 0.3s;
   }
   .nav__link:hover {
-    color: hsl(219, 66%, 53%);
+    color: hsl(54, 88%, 51%);
   }
   .nav__close {
     font-size: 2rem;
@@ -75,6 +75,9 @@
     top: 0.5rem;
     right: 1rem;
     cursor: pointer;
+  }
+  .nav__item a svg{
+    font-size: 1.5rem;
   }
 
   @media screen and (min-width: 767px) {
