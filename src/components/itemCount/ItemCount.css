@@ -1,0 +1,25 @@
+
+.count {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 25px;
+    margin: 0.5rem;
+}
+
+.count p {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    justify-content: center;
+    background: white;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    height: 1.6rem;
+    width: 1.6rem;
+    background: rgb(255, 123, 0);
+}
