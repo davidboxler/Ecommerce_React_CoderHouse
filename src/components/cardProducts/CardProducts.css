@@ -42,15 +42,15 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 2rem;
+    padding-top: 1rem;
     z-index: 1;
 }
 .card .imgBx img {
-    max-width: 80%;
+    max-width: 70%;
     transition: 0.5s;
 }
 .card:hover .imgBx img {
-    max-width: 60%;
+    max-width: 40%;
 }
 .card .contentBx {
     position: relative;

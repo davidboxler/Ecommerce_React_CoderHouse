@@ -1,3 +1,4 @@
+@import './styles/variables.scss';
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
 /* ============= Base ============== */
@@ -70,9 +71,4 @@ button {
   font-size: 1.25rem;
   margin-bottom: 2.5rem;
   text-align: center;
-}
-.listCards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  column-gap: 2rem;
 }

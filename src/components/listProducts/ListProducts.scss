@@ -1,0 +1,11 @@
+.listCards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 2rem;
+}
+.title {
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  text-transform: capitalize;
+  color: #222;
+}
