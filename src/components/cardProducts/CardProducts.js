@@ -1,4 +1,4 @@
-import './CardProducts.css';
+import './CardProducts.scss';
 import ItemCount from '../itemCount/ItemCount';
 
 function CardProducts(props) {
