@@ -1,0 +1,61 @@
+.ui_item_content {
+  height: 314px;
+  margin: 0 8px 16px;
+  width: 224px;
+}
+
+.ui_item {
+  box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
+  background-color: #fff;
+  border-radius: 4px;
+  color: #333;
+  flex-direction: column;
+  position: relative;
+}
+
+.ui_item_image {
+  height: 224px;
+  width: 224px;
+}
+
+.ui_item_link {
+  cursor: pointer;
+  height: 100%;
+  position: absolute;
+  text-decoration: none;
+  width: 100%;
+  z-index: 1;
+}
+
+.ui_item_link img {
+  height: 224px;
+  width: 224px;
+  display: block;
+}
+
+.ui_item_info {
+  padding: 20px 16px;
+  position: relative;
+}
+
+.ui_info_price {
+  display: inline-block;
+  font-size: 24px;
+  line-height: 1em;
+}
+
+.ui_shipping_free {
+  color: #00a650;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16px;
+  margin: 2px 0 0;
+}
+
+.ui_title {
+  margin-top: 8px;
+  min-height: auto;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.3;
+}
