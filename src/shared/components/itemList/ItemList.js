@@ -6,7 +6,7 @@ import "./ItemList.scss";
 
 const ListProducts = ({ children }) => {
   const [products, setProducts] = useState([]);
-  const { categoria } = useParams(); 
+  const { categoria } = useParams();
 
   const getProducts = new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -18,7 +18,7 @@ const ListProducts = ({ children }) => {
     try {
       const result = await getProducts;
       setProducts(result);
-      filterProductByCategory(result, categoria)
+      filterProductByCategory(result, categoria);
     } catch (error) {
       console.log(error);
       alert(
@@ -34,11 +34,11 @@ const ListProducts = ({ children }) => {
 
   const filterProductByCategory = (array, categoria) => {
     return array.map((product) => {
-      if(product.categoria === categoria){
-        return setProducts([...products, product])
+      if (product.categoria === categoria) {
+        return setProducts([...products, product]);
       }
-    })
-  }
+    });
+  };
 
   return (
     <section className="store-catalog">
@@ -52,7 +52,7 @@ const ListProducts = ({ children }) => {
               <div key={product.id}>
                 <Item
                   id={product.id}
-                  title={product.title}
+                  title={product.titleShort}
                   price={product.price}
                   img={product.image}
                 />

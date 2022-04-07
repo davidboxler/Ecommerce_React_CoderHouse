@@ -1,8 +1,24 @@
 import "./ItemDetails.scss";
-import ItemCount from '../itemCount/ItemCount';
+import ItemCount from "../itemCount/ItemCount";
 import { HiOutlineHeart, HiOutlineTruck } from "react-icons/hi";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
-const ItemDetails = ({data}) => {
+const ItemDetails = ({ data }) => {
+  const [contador, setContador] = useState(0);
+
+  const agregarProducto = () => {
+    if (contador < data.stock) {
+      setContador(contador + 1);
+    }
+  };
+
+  const restarProducto = () => {
+    if (contador > 1) {
+      setContador(contador - 1);
+    }
+  };
+
   return (
     <div className="container_product">
       <div className="panel">
@@ -46,11 +62,13 @@ const ItemDetails = ({data}) => {
             </div>
 
             <div className="cantidad">
-              <ItemCount stock={data.stock} />
+              <ItemCount count={contador} actionIncr={agregarProducto} actionDecr={restarProducto} />
             </div>
 
             <div className="button_card">
-              <button className="solid">Comprar ahora</button>
+              <Link to={"/carrito"} className="button solid">
+                Comprar ahora
+              </Link>
               <button>Agregar al carrito</button>
             </div>
           </div>
@@ -58,6 +76,6 @@ const ItemDetails = ({data}) => {
       </div>
     </div>
   );
-}
+};
 
 export default ItemDetails;

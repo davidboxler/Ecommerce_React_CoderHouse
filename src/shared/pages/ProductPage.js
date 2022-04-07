@@ -6,7 +6,7 @@ import MockProducts from "../../assets/MockProducts";
 
 function ProductPage() {
     const { id } = useParams()
-    const [details, setProduct] = useState({})
+    const [details, setProduct] = useState({});
 
     useEffect( () => {
         filterProductById(MockProducts, id)

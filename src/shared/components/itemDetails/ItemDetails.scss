@@ -38,8 +38,6 @@
   color: $text3;
 }
 section {
-  padding: 32px 16px;
-  margin: 0 16px;
   border: 1px solid $border;
   border-bottom: none;
 }
@@ -174,7 +172,7 @@ section a {
   display: flex;
   flex-direction: column;
 }
-button {
+.button, button {
   margin-top: 16px;
   display: flex;
   align-items: center;
