@@ -1,7 +1,7 @@
 import ItemDetails from "../components/itemDetails/ItemDetails";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import MockProducts from "../../assets/MockProducts";
+import MockProducts from "../assets/MockProducts";
 
 
 function ProductPage() {

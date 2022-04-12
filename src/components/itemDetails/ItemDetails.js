@@ -2,10 +2,12 @@ import "./ItemDetails.scss";
 import ItemCount from "../itemCount/ItemCount";
 import { HiOutlineHeart, HiOutlineTruck } from "react-icons/hi";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import CartContext from "../../context/CartContext";
 
 const ItemDetails = ({ data }) => {
   const [contador, setContador] = useState(0);
+  const { cartProducts, addProductToCart } = useContext(CartContext)
 
   const agregarProducto = () => {
     if (contador < data.stock) {
@@ -18,6 +20,12 @@ const ItemDetails = ({ data }) => {
       setContador(contador - 1);
     }
   };
+
+  const addToCart = (e) => {
+    e.stopPropagation()
+    console.log("Productos cargados: ", cartProducts)
+    addProductToCart(data)
+  }
 
   return (
     <div className="container_product">
@@ -69,7 +77,7 @@ const ItemDetails = ({ data }) => {
               <Link to={"/carrito"} className="button solid">
                 Comprar ahora
               </Link>
-              <button>Agregar al carrito</button>
+              <button onClick={addToCart}>Agregar al carrito</button>
             </div>
           </div>
         </div>

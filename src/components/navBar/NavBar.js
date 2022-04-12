@@ -6,9 +6,9 @@ import { faGamepad } from "@fortawesome/free-solid-svg-icons";
 
 function Navbar() {
   const pages = [
-    { title: "Home", url: "/" },
-    { title: "Nosotros", url: "/nosotros" },
-    { title: "Contacto", url: "/contacto" }
+    { id: 1, title: "Home", url: "/" },
+    { id: 2, title: "Nosotros", url: "/nosotros" },
+    { id: 3, title: "Contacto", url: "/contacto" }
   ];
 
   return (
@@ -18,7 +18,7 @@ function Navbar() {
       </Link>
       <nav className="navbar">
         {pages.map((page) => {
-          return <Link to={page.url}>{page.title}</Link>;
+          return <Link key={page.id} to={page.url}>{page.title}</Link>;
         })}
         <Link to={"/electronica"}>Electronica</Link>
         <Link to={"/carrito"}><Icon /></Link>
