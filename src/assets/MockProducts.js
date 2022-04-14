@@ -8,7 +8,8 @@ const MockProducts = [
         categoria: 'electronica',
         color: 'Negro/Rojo',
         description: 'Sony, sin lugar a dudas es una de las marcas más reconocidas en el mundo por la fabricación de dispositivos de audio.',
-        stock: 5
+        stock: 5,
+        cantidad: 0
     },
     {
         title : 'Auricular inalámbrico JBL Tune 510BT negro',
@@ -19,7 +20,8 @@ const MockProducts = [
         categoria: 'electronica',
         color: 'Negro/Blanco',
         description: 'En la calle, en el colectivo o en la oficina, tené siempre a mano tu auricular JBL y ¡escapate de la rutina por un rato! Vas a poder disfrutar de la música que más te gusta y recibir llamadas telefónicas claras donde sea que te encuentres, sin perder contacto con el entorno.',
-        stock: 3
+        stock: 3,
+        cantidad: 0
     },
     {
         title : 'Auriculares inalámbricos Philips 1000 Series TAH1205 negro',
@@ -30,7 +32,8 @@ const MockProducts = [
         categoria: 'electronica',
         color: 'Negro',
         description: 'En la calle, en el colectivo o en la oficina, tené siempre a mano tus auriculares Philips y ¡escapate de la rutina por un rato! Vas a poder disfrutar de la música que más te gusta y de tus podcasts favoritos cuando quieras y donde quieras.',
-        stock: 6
+        stock: 6,
+        cantidad: 0
     },
     {
         title : 'Auriculares inalámbricos Noga Aris NG-BT469 rojo y negro',
@@ -41,7 +44,8 @@ const MockProducts = [
         categoria: 'electronica',
         color: 'Rojo/Azul/Verde',
         description: 'El diseño over-ear brinda una comodidad insuperable gracias a sus suaves almohadillas. Al mismo tiempo, su sonido envolvente del más alto nivel se convierte en el protagonista de la escena.',
-        stock: 7
+        stock: 7,
+        cantidad: 0
     },
     {
         title : 'Auriculares inalámbricos Tedge H600BT azul claro',
@@ -52,7 +56,8 @@ const MockProducts = [
         categoria: 'electronica',
         color: 'Azul Claro',
         description: 'El diseño over-ear brinda una comodidad insuperable gracias a sus suaves almohadillas. Al mismo tiempo, su sonido envolvente del más alto nivel se convierte en el protagonista de la escena.',
-        stock: 4
+        stock: 4,
+        cantidad: 0
     }
 ]
 

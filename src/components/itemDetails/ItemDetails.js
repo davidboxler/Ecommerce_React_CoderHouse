@@ -7,7 +7,9 @@ import CartContext from "../../context/CartContext";
 
 const ItemDetails = ({ data }) => {
   const [contador, setContador] = useState(0);
-  const { cartProducts, addProductToCart } = useContext(CartContext)
+  const { cartProducts, addProductToCart } = useContext(CartContext);
+  const [show, setShow] = useState(true);
+  const [mostrarComponente, setMostrarComponente] = useState(true);
 
   const agregarProducto = () => {
     if (contador < data.stock) {
@@ -22,10 +24,16 @@ const ItemDetails = ({ data }) => {
   };
 
   const addToCart = (e) => {
-    e.stopPropagation()
-    console.log("Productos cargados: ", cartProducts)
-    addProductToCart(data)
-  }
+    e.stopPropagation();
+    console.log("Productos cargados: ", cartProducts);
+    if (contador === 0) {
+      alert("Debe agregar al menos un producto al carrito");
+    } else {
+      data.cantidad = contador;
+      addProductToCart(data);
+      setMostrarComponente(!mostrarComponente);
+    }
+  };
 
   return (
     <div className="container_product">
@@ -69,15 +77,32 @@ const ItemDetails = ({ data }) => {
               Color de la luz: <strong>Rojo</strong>
             </div>
 
-            <div className="cantidad">
-              <ItemCount count={contador} actionIncr={agregarProducto} actionDecr={restarProducto} />
+            <div className={mostrarComponente ? "show-element" : null}>
+              {mostrarComponente && (
+                <div className="cantidad">
+                  <ItemCount
+                    count={contador}
+                    actionIncr={agregarProducto}
+                    actionDecr={restarProducto}
+                  />
+                </div>
+              )}
             </div>
 
             <div className="button_card">
-              <Link to={"/carrito"} className="button solid">
-                Comprar ahora
-              </Link>
-              <button onClick={addToCart}>Agregar al carrito</button>
+              <div className={mostrarComponente ? "show-element" : null}>
+                {!mostrarComponente && (
+                  <Link to={"/carrito"} className="button solid ">
+                    Comprar ahora
+                  </Link>
+                )}
+              </div>
+
+              <div className={mostrarComponente ? "show-element" : null}>
+                {mostrarComponente && (
+                  <button onClick={addToCart}>Agregar al carrito</button>
+                )}
+              </div>
             </div>
           </div>
         </div>
