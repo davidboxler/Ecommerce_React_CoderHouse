@@ -1,10 +1,8 @@
-import ItemList from '../components/itemList/ItemList';
+import ItemListContainer from "../components/itemListContainer/ItemListContainer";
 
 function HomePage() {
     return(
-        <ItemList>
-            <p>Más Vendidos</p>
-        </ItemList>
+       <ItemListContainer />
     )
 }
 

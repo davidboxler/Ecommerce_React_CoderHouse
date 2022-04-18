@@ -1,8 +1,7 @@
 import "./NavBar.scss";
 import Icon from "../cartWidgets/CardWidgets";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGamepad } from "@fortawesome/free-solid-svg-icons";
+import { VideogameAsset, VideogameAssetOffOutlined } from "@mui/icons-material";
 
 function Navbar() {
   const pages = [
@@ -14,7 +13,9 @@ function Navbar() {
   return (
     <section className="header">
       <Link to={"/"} className="logo">
-        <FontAwesomeIcon icon={faGamepad} /> Hourglass house{" "}
+        <VideogameAsset  />
+        Hourglass house
+        {/* <FontAwesomeIcon icon={faGamepad} /> Hourglass house{" "} */}
       </Link>
       <nav className="navbar">
         {pages.map((page) => {

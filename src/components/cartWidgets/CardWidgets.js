@@ -1,10 +1,7 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { ShoppingCartOutlined } from "@mui/icons-material";
 
 function Icon() {
-    return(
-        <FontAwesomeIcon icon={faCartShopping} />
-    )
+  return <ShoppingCartOutlined />;
 }
 
 export default Icon;
