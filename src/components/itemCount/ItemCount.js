@@ -1,12 +1,12 @@
 import { useState } from "react"
 import './ItemCount.scss';
 
-const ItemCount = ({ count, actionIncr, actionDecr}) => {
+const ItemCount = ({ count, itemAdd, itemRest}) => {
     return(
         <div className="count">
-            <button onClick={actionDecr}>-</button>
+            <button onClick={itemRest}>-</button>
             <p>{count}</p>
-            <button onClick={actionIncr}>+</button>
+            <button onClick={itemAdd}>+</button>
         </div>
     )
 }

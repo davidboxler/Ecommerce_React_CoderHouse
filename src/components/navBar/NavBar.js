@@ -1,31 +1,66 @@
+import React, { useState, useEffect } from "react";
 import "./NavBar.scss";
-import Icon from "../cartWidgets/CardWidgets";
 import { Link } from "react-router-dom";
-import { VideogameAsset, VideogameAssetOffOutlined } from "@mui/icons-material";
+import SearchIcon from "@mui/icons-material/Search";
+import CardWidgets from "../cartWidgets/CardWidgets";
+import { VideogameAsset } from "@mui/icons-material";
+import database from "../../firebase";
+import { collection, getDocs } from "firebase/firestore";
 
-function Navbar() {
-  const pages = [
-    { id: 1, title: "Home", url: "/" },
-    { id: 2, title: "Nosotros", url: "/nosotros" },
-    { id: 3, title: "Contacto", url: "/contacto" }
-  ];
+const Navbar = () => {
+  const [titles, setTitulos] = useState([]);
+
+  const getItems = async () => {
+    const itemCollection = collection(database, "navbar");
+    const titulos = await getDocs(itemCollection);
+    console.log(titulos);
+    const titulosList = titulos.docs.map((doc) => {
+      let titulo = doc.data();
+      titulo.id = doc.id;
+      console.log(titulo);
+      return titulo;
+    });
+    return titulosList;
+  };
+
+  useEffect(() => {
+    setTitulos([]);
+    getItems().then((p) => {
+      setTitulos(p);
+    });
+  }, []);
 
   return (
-    <section className="header">
-      <Link to={"/"} className="logo">
-        <VideogameAsset  />
-        Hourglass house
-        {/* <FontAwesomeIcon icon={faGamepad} /> Hourglass house{" "} */}
-      </Link>
-      <nav className="navbar">
-        {pages.map((page) => {
-          return <Link key={page.id} to={page.url}>{page.title}</Link>;
-        })}
-        <Link to={"/electronica"}>Electronica</Link>
-        <Link to={"/carrito"}><Icon /></Link>
-      </nav>
-    </section>
+    <div className="container">
+      <div className="wrapper">
+        <div className="left">
+          <div className="language">ES</div>
+          <div className="search-container">
+            <input />
+            <SearchIcon className="search" />
+          </div>
+        </div>
+        <div className="center">
+          <Link to={"/"} className="logo">
+            <div>Owl House</div>
+            <VideogameAsset className="btn-icon" />
+          </Link>
+        </div>
+        <div className="right">
+          {titles.map((page) => {
+            return (
+              <div className="menu-item" key={page.id}>
+                <Link to={page.url}>{page.title}</Link>
+              </div>
+            );
+          })}
+          <div className="menu-item">
+            <CardWidgets />
+          </div>
+        </div>
+      </div>
+    </div>
   );
-}
+};
 
 export default Navbar;

@@ -1,14 +1,14 @@
+import { useState, useContext } from "react";
 import "./ItemDetails.scss";
-import ItemCount from "../itemCount/ItemCount";
 import { HiOutlineHeart, HiOutlineTruck } from "react-icons/hi";
 import { Link } from "react-router-dom";
-import { useState, useContext } from "react";
+import ItemCount from "../itemCount/ItemCount";
 import CartContext from "../../context/CartContext";
 
 const ItemDetails = ({ data }) => {
-  const [contador, setContador] = useState(0);
   const { cartProducts, addProductToCart } = useContext(CartContext);
   const [show, setShow] = useState(true);
+  const [contador, setContador] = useState(1);
   const [mostrarComponente, setMostrarComponente] = useState(true);
 
   const agregarProducto = () => {
@@ -40,7 +40,7 @@ const ItemDetails = ({ data }) => {
       <div className="panel">
         <div className="column">
           <div className="galery">
-            <img src={`${data.img}`} alt="producto"></img>
+            <img src={data.image} alt="producto"></img>
           </div>
           <div className="description">
             <h4>Descripción</h4>
@@ -80,11 +80,9 @@ const ItemDetails = ({ data }) => {
             <div className={mostrarComponente ? "show-element" : null}>
               {mostrarComponente && (
                 <div className="cantidad">
-                  <ItemCount
-                    count={contador}
-                    actionIncr={agregarProducto}
-                    actionDecr={restarProducto}
-                  />
+                  <ItemCount  count={contador}
+                    itemAdd={agregarProducto}
+                    itemRest={restarProducto} />
                 </div>
               )}
             </div>
@@ -100,7 +98,9 @@ const ItemDetails = ({ data }) => {
 
               <div className={mostrarComponente ? "show-element" : null}>
                 {mostrarComponente && (
-                  <button onClick={addToCart}>Agregar al carrito</button>
+                  <button className="button add" onClick={addToCart}>
+                    Agregar al carrito
+                  </button>
                 )}
               </div>
             </div>

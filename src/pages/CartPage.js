@@ -1,23 +1,12 @@
-import CartContext from "../context/CartContext";
-import { useContext } from "react";
+import React from 'react'
+import Cart from '../components/cart/Cart'
 
-function ContactPage() {
-  const { cartProducts } = useContext(CartContext);
-  console.log(cartProducts);
+export const CartPage = () => {
   return (
     <div>
-      <h1>Página del Carrito</h1>
-      {cartProducts.map((cartProduct) => {
-        return (
-          <div>
-            <div>{cartProduct.title}</div>
-            <img src={cartProduct.image}></img>
-            <div>{cartProduct.price}</div>
-          </div>
-        );
-      })}
+      <Cart />
     </div>
-  );
+  )
 }
 
-export default ContactPage;
+export default CartPage;

@@ -1,73 +1,116 @@
 @import "./styles/variables.scss";
 
-* {
-  font-family: "Poppins", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  border: none;
+a {
   text-decoration: none;
-  text-transform: capitalize;
-  transition: all 0.4s cubic-bezier(0.43, 1.1, 0.62, 1.08);
 }
 
-* > img {
-  user-select: none;
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
   pointer-events: none;
 }
 
-/* ================= CSS CLASS ================= */
-html {
-  font-size: 62.5%;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  scroll-padding-top: 6rem;
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
-html::-webkit-scrollbar {
-  width: 1rem;
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
-html::-webkit-scrollbar-track {
-  background-color: var(--white);
+.App-link {
+  color: #61dafb;
 }
 
-html::-webkit-scrollbar-thumb {
-  background-color: var(--peru);
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-section {
-  padding: 5rem 10%;
-}
+// * {
+//   font-family: "Poppins", sans-serif;
+//   margin: 0;
+//   padding: 0;
+//   box-sizing: border-box;
+//   outline: none;
+//   border: none;
+//   text-decoration: none;
+//   text-transform: capitalize;
+//   transition: all 0.4s cubic-bezier(0.43, 1.1, 0.62, 1.08);
+// }
 
-/* ================= HEADING ================= */
-.heading {
-  text-align: center;
-  margin-bottom: 3rem;
-}
+// * > img {
+//   user-select: none;
+//   pointer-events: none;
+// }
 
-.heading span {
-  font-size: 2.5rem;
-  color: var(--peru);
-}
+// /* ================= CSS CLASS ================= */
+// html {
+//   font-size: 62.5%;
+//   overflow-x: hidden;
+//   scroll-behavior: smooth;
+//   scroll-padding-top: 6rem;
+// }
 
-.heading h3 {
-  font-size: 4.5rem;
-  color: var(--black);
-}
+// html::-webkit-scrollbar {
+//   width: 1rem;
+// }
 
-/* ================= BUTTONS ================= */
-.btn {
-  margin-top: 1rem;
-  display: inline-block;
-  background: var(--peru);
-  color: var(--white);
-  font-size: 2rem;
-  cursor: pointer;
-  padding: 1rem 3rem;
-}
+// html::-webkit-scrollbar-track {
+//   background-color: var(--white);
+// }
 
-.btn:hover {
-  letter-spacing: 0.2rem;
-}
+// html::-webkit-scrollbar-thumb {
+//   background-color: var(--peru);
+// }
+
+// section {
+//   padding: 5rem 10%;
+// }
+
+// /* ================= HEADING ================= */
+// .heading {
+//   text-align: center;
+//   margin-bottom: 3rem;
+// }
+
+// .heading span {
+//   font-size: 2.5rem;
+//   color: var(--peru);
+// }
+
+// .heading h3 {
+//   font-size: 4.5rem;
+//   color: var(--black);
+// }
+
+// /* ================= BUTTONS ================= */
+// .btn {
+//   margin-top: 1rem;
+//   display: inline-block;
+//   background: var(--peru);
+//   color: var(--white);
+//   font-size: 2rem;
+//   cursor: pointer;
+//   padding: 1rem 3rem;
+// }
+
+// .btn:hover {
+//   letter-spacing: 0.2rem;
+// }
