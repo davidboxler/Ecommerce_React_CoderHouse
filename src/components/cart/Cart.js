@@ -8,14 +8,14 @@ import { red } from "@mui/material/colors";
 
 function Cart() {
   const { cartProducts, totalPrice, deleteProduct } = useContext(CartContext);
-  // const [loading, setLoading] = useState(true);
-  console.log(cartProducts);
+  const [loading, setLoading] = useState(true);
+  const IVA = Math.floor((totalPrice / 100) * 25);
+  const descuento = Math.floor((totalPrice / 100) * 10);
 
-  // useEffect(() => {
-  //   setLoading(true);
-  // }, []);
-  const IVA = (totalPrice / 100) * 25;
-  const descuento = (totalPrice / 100) * 10;
+  useEffect(() => {
+    cartProducts.length ? setLoading(false) : setLoading(true)
+  }, []);
+
   return (
     <div className="container-cart">
       <div className="wrapper-cart">
@@ -30,38 +30,41 @@ function Cart() {
         </div>
         <div className="btn-cart">
           <div className="info-cart">
-            {/* {loading ? (
+            {loading ? (
               <CircularProgress />
-            ) : ( */}
-            {cartProducts.map((product) => {
-              return (
-                <div className="product-cart mr-b">
-                  <div className="product-detail-cart">
-                    <img className="img-cart" src={product.image} />
-                    <div className="details-cart">
-                      <div className="product-name">
-                        <b>Producto: </b> {product.title}
-                      </div>
-                      <div className="product-color">
-                        <b>Color: </b> {product.color}
+            ) : (
+              cartProducts.map((product) => {
+                return (
+                  <div className="product-cart mr-b" key={product.id}>
+                    <div className="product-detail-cart">
+                      <img className="img-cart" src={product.imagen} />
+                      <div className="details-cart">
+                        <div className="product-name">
+                          <b>Producto: </b> {product.title}
+                        </div>
+                        <div className="product-color">
+                          <b>Color: </b> {product.color}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="price-detail-cart">
-                    <div className="product-amount-container">
-                      {/* <ItemCount stock={product.cantidad} /> */}
+                    <div className="price-detail-cart">
+                      <div className="product-amount-container">
+                        <p>{product.cantidad}</p>
+                      </div>
+                      <div className="price-product-cart">
+                        $ {product.precio}
+                      </div>
                     </div>
-                    <div className="price-product-cart">$ {product.price}</div>
+                    <button className="btn-icon-cart">
+                      <Delete
+                        sx={{ color: red[500] }}
+                        onClick={() => deleteProduct(product)}
+                      />
+                    </button>
                   </div>
-                  <button className="btn-icon-cart">
-                    <Delete
-                      sx={{ color: red[500] }}
-                      onClick={() => deleteProduct(product)}
-                    />
-                  </button>
-                </div>
-              );
-            })}
+                );
+              })
+            )}
           </div>
           <div className="sumary">
             <h1 className="sumary-title">Tus Productos</h1>

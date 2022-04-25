@@ -11,9 +11,8 @@ const CartProvider = ({ children }) => {
       (cartProduct) => cartProduct.id === product.id
     );
     if (!exist) {
-      setTotalPrice(totalPrice + product.price * product.cantidad);
+      setTotalPrice(totalPrice + product.precio * product.cantidad);
       setCartProducts((cartProducts) => [...cartProducts, product]);
-      console.log("agregar producto al carrito", product);
     }
   };
 
@@ -21,7 +20,7 @@ const CartProvider = ({ children }) => {
     setCartProducts(
       cartProducts.filter((cartProduct) => cartProduct.id !== product.id)
     );
-    setTotalPrice(totalPrice - product.price * product.cantidad);
+    setTotalPrice(totalPrice - product.precio * product.cantidad);
   };
 
   const data = {
@@ -36,26 +35,3 @@ const CartProvider = ({ children }) => {
 
 export { CartProvider };
 export default CartContext;
-
-// const [cartProducts, setCartProducts] = useState([])
-//     const [totalPrice, setTotalPrice] = useState(0)
-
-//     const addProductToCart = (product) => {
-//         let exist = cartProducts.find(cartProduct => cartProduct.id === product.id)
-//         if(!exist) {
-//             // setTotalPrice(totalPrice + product.price * product.quantity)
-//             setTotalPrice(totalPrice + product.price)
-//             setCartProducts(cartProducts => [...cartProducts, product])
-//         }
-//     }
-
-//     const deleteProduct = (product) => {
-//         setCartProducts(cartProducts.filter( cartProduct => cartProduct.id !== product.id))
-//     }
-
-//     const data = {
-//         cartProducts,
-//         addProductToCart,
-//         totalPrice,
-//         deleteProduct
-//     }

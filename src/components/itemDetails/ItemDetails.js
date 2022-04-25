@@ -6,8 +6,7 @@ import ItemCount from "../itemCount/ItemCount";
 import CartContext from "../../context/CartContext";
 
 const ItemDetails = ({ data }) => {
-  const { cartProducts, addProductToCart } = useContext(CartContext);
-  const [show, setShow] = useState(true);
+  const { addProductToCart } = useContext(CartContext);
   const [contador, setContador] = useState(1);
   const [mostrarComponente, setMostrarComponente] = useState(true);
 
@@ -25,7 +24,6 @@ const ItemDetails = ({ data }) => {
 
   const addToCart = (e) => {
     e.stopPropagation();
-    console.log("Productos cargados: ", cartProducts);
     if (contador === 0) {
       alert("Debe agregar al menos un producto al carrito");
     } else {
@@ -40,11 +38,11 @@ const ItemDetails = ({ data }) => {
       <div className="panel">
         <div className="column">
           <div className="galery">
-            <img src={data.image} alt="producto"></img>
+            <img src={data.imagen} alt="producto"></img>
           </div>
           <div className="description">
             <h4>Descripción</h4>
-            <p>{data.description}</p>
+            <p>{data.descripcion}</p>
           </div>
         </div>
         <div className="column">
@@ -56,7 +54,7 @@ const ItemDetails = ({ data }) => {
               <HiOutlineHeart className="icon_heart" />
             </div>
 
-            <div className="price_producto">$ {data.price}</div>
+            <div className="price_producto">$ {data.precio}</div>
 
             <div className="card_venta">
               <HiOutlineTruck className="icon_truck" />

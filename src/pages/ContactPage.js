@@ -8,17 +8,14 @@ const ContactPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log("Envio de nombre: ", value)
     }
 
     const handleChange = (e) => {
-        console.log(e)
         setValue(e.target.value)
     }
 
     const resetForm = () => {
         setValue('')
-        console.log("limpiar formulario")
     }
 
     return(

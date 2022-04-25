@@ -43,7 +43,6 @@ export const Footer = () => {
           <li className="list-item-footer">Inicio</li>
           <li className="list-item-footer">Carrito</li>
           <li className="list-item-footer">Accesorios</li>
-          <li className="list-item-footer">Auriculares</li>
           <li className="list-item-footer">Teclados</li>
           <li className="list-item-footer">Monitores</li>
           <li className="list-item-footer">Sillas Gamer</li>

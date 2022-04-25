@@ -17,7 +17,6 @@ export const CardWidgets = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  console.log("cartProducts: ", cartProducts);
 
   return (
     <div className="icon-menu">
@@ -48,9 +47,9 @@ export const CardWidgets = () => {
             return (
               <div className="productsContainer" key={cartProduct.id}>
                 <div className="cartItem">
-                  <img className="cartImg" src={cartProduct.image} />
+                  <img className="cartImg" src={cartProduct.imagen} />
                   <p>{cartProduct.titleShort}</p>
-                  <span>$ {cartProduct.price}</span>
+                  <span>$ {cartProduct.precio}</span>
                   <button className="btn-icon-cart">
                     <Delete
                       sx={{ color: red[500] }}

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import MockProducts from "../../assets/MockProducts";
 import Item from "../item/Item";
 import database from "../../firebase";
 import { collection, getDocs } from "firebase/firestore";
@@ -12,37 +11,30 @@ const ListProducts = ({ children }) => {
   const { categoria } = useParams();
   const [loading, setLoading] = useState(true);
 
-  const getProducts = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(MockProducts);
-    }, 2000);
-  });
-
-  const getProductsFromDB = async () => {
-    try {
-      const result = await getProducts;
-      return result;
-    } catch (error) {
-      console.log(error);
-      alert(
-        "Ha ocurrido un error, no podemos mostrar los productos en este momento"
-      );
-    }
+  const getProducts = async () => {
+    const itemCollection = collection(database, "productos");
+    const productos = await getDocs(itemCollection);
+    const productList = productos.docs.map((doc) => {
+      let product = doc.data();
+      product.id = doc.id;
+      return product;
+    });
+    return productList;
   };
 
   useEffect(() => {
     setProducts([]);
     setLoading(true);
-    getProductsFromDB().then((p) => {
-      setLoading(false);
-      categoria ? filterProductByCategory(p, categoria) : setProducts(p);
-    });
+    getProducts().then((p) => {
+      setLoading(false)
+      categoria ? filterProductByCategory(p, categoria) : setProducts(p)
+    })
   }, [categoria]);
 
   const filterProductByCategory = (array, categoria) => {
-    return array.map((product) => {
-      if (product.categoria === categoria) {
-        return setProducts([...products, product]);
+    return array.map((x, i) => {
+      if (x.categoria === categoria) {
+        return setProducts(products => [...products, x]);
       }
     });
   };
@@ -62,8 +54,11 @@ const ListProducts = ({ children }) => {
                 <Item
                   id={product.id}
                   title={product.title}
-                  price={product.price}
-                  img={product.image}
+                  precio={product.precio}
+                  imagen={product.imagen}
+                  color={product.color}
+                  titleShort={product.titleShort}
+                  cantidad={product.cantidad}
                 />
               </div>
             );
@@ -75,34 +70,3 @@ const ListProducts = ({ children }) => {
 };
 
 export default ListProducts;
-
-// TRAER PRODUCTOS DESDE LA BASE DE DATOS
-// const getProducts = async () => {
-//   const itemCollection = collection(database, "productos");
-//   const productos = await getDocs(itemCollection);
-//   console.log(productos);
-//   const productList = productos.docs.map((doc) => {
-//     let product = doc.data();
-//     product.id = doc.id;
-//     console.log(product);
-//     return product;
-//   });
-//   return productList;
-// };
-
-// useEffect(() => {
-//   setProducts([]);
-//   setLoading(true);
-//   getProductsFromDB().then( (p) => {
-//     setLoading(false)
-//     categoria ? filterProductByCategory(p, categoria) : setProducts(p)
-//   })
-// }, [categoria]);
-
-// const filterProductByCategory = (array, categoria) => {
-//   return array.map((x) => {
-//     if (x.categoria === categoria) {
-//       return setProducts([...products, x]);
-//     }
-//   });
-// };
