@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import CardWidgets from "../cartWidgets/CardWidgets";
 import { VideogameAsset } from "@mui/icons-material";
-import database from "../../firebase";
+import database from "../../assets/firebase";
 import { Menu, MenuItem, Button } from "@mui/material";
 import { collection, getDocs } from "firebase/firestore";
 
@@ -59,7 +59,7 @@ const Navbar = () => {
           {titles.map((page) => {
             return page.title === "Categorías" ? (
               <div className="menu-item" key={page.id}>
-                <Button
+                <Button className="btn-category"
                   aria-controls={open ? "basic-menu" : undefined}
                   aria-haspopup="true"
                   aria-expanded={open ? "true" : undefined}

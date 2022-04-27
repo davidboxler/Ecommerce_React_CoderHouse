@@ -3,7 +3,7 @@ import ItemDetails from "../itemDetails/ItemDetails";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { doc, getDoc } from "firebase/firestore";
-import database from '../../firebase';
+import database from '../../assets/firebase';
 
 function ItemDetailContainer() {
   const { id } = useParams();
