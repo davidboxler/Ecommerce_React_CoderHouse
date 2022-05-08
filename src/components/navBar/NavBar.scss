@@ -1,72 +1,67 @@
-// @import '../../styles/variables.scss';
-
-.container {
-  height: 60px;
-}
-.wrapper {
-  padding: 10px 20px;
+#header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 20px 80px;
+  background: #E3E6F3;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  z-index: 999;
+  position: sticky;
+  top: 0;
+  left: 0;
 }
-.left {
-  flex: 1;
+#header .logo {
+  display: flex;
+  justify-content: space-between;
+  width: 10%;
+  font-size: 17px;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+#navbar {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
-.center {
-  flex: 1;
-  text-align: center;
+#navbar li {
+  list-style: none;
+  padding: 0 20px;
+  position: relative;
 }
-.right {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-.language {
-  font-size: 14px;
-  cursor: pointer;
-}
-.search-container {
-  border: 1px solid lightgray;
-  display: flex;
-  align-items: center;
-  margin-left: 25px;
-  padding: 5px;
-}
-input {
-  border: none;
-}
-.search {
+#navbar li a {
+  text-decoration: none;
   font-size: 16px;
-  color: gray;
+  font-weight: 600;
+  color: #1a1a1a;
+  transition: 0.3s ease;
 }
-.logo {
-  display: flex;
-  font-weight: bold;
-  color: black;
-  align-items: flex-end;
-  font-size: 1.5rem;
-  text-decoration: none;
+#navbar li button {
+  text-transform: none;
+  color: #1a1a1a;
+  font-weight: 600;
+  padding: 0;
 }
-.btn-icon {
- margin-left: 10px;
+#navbar li a:hover, #navbar li a.active, #navbar li button:hover {
+  color: #088178;
 }
-.menu-item {
-  font-size: 14px;
-  cursor: pointer;
-  margin-left: 25px;
+#navbar li a.active::after,
+#navbar li a:hover::after,
+#navbar li button:hover::after {
+  content: '';
+  width: 30%;
+  height: 2px;
+  background: #088178;
+  position: absolute;
+  bottom: -4px;
+  left: 20px;
 }
-.menu-item a {
-  color: black;
-  text-decoration: none;
+#navbar li span {
+  margin-top: 0;
 }
-.btn-category {
-  font-size: 14px !important;
-  color: black !important;
-  text-transform: none !important;
+#mobile {
+  display: none;
+  align-items: center;
 }
-Button:hover {
-  background-color: white !important;
+#close {
+  display: none;
 }

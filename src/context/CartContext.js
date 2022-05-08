@@ -20,7 +20,7 @@ const CartProvider = ({ children }) => {
     setCartProducts(
       cartProducts.filter((cartProduct) => cartProduct.id !== product.id)
     );
-    setTotalPrice(totalPrice - product.precio * product.cantidad);
+    setTotalPrice(totalPrice - (product.precio * product.cantidad));
   };
 
   const data = {

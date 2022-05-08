@@ -1,75 +1,55 @@
-.container-footer {
-    display: flex;
-}
-.left-footer {
-    flex: 1;
-    flex-direction: column;
-    display: flex;
-    padding: 20px;
-}
-.desc-footer {
-    margin: 20px 0px;
-}
-.social-container {
-    display: flex;
-}
-.social-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 20px;
-}
-.bg-1 {
-    background-color: #3b5999;
-}
-.bg-2 {
-    background-color: #e4405f;
-}
-.bg-3 {
-    background-color: #55acee;
-}
-.bg-4 {
-    background-color: #e60023;
-}
-.center-footer {
-    flex: 1; 
-    padding: 20px;
-}
-.title-footer {
-    margin-bottom: 30px;
-    font-weight: bold;
-}
-.list-footer {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+
+footer {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
-.list-item-footer {
-    width: 50%;
+footer .logo {
+    display: flex;
+    justify-content: space-between;
+    width: 45%;
+    font-size: 17px;
+    color: #1a1a1a;
+    font-weight: 600;
+}
+footer .col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+footer .logo {
+    margin-bottom: 30px;
+}
+footer h4 {
+    font-size: 14px;
+    padding-bottom: 20px;
+}
+footer p {
+    font-size: 13px;
+    margin: 0 0 8px 0;
+}
+footer a {
+    font-size: 13px;
+    text-decoration: none;
+    color: #222;
     margin-bottom: 10px;
 }
-.right-footer {
-    flex: 1;
-    padding: 20px;
+footer .follow {
+    margin-top: 20px;
 }
-.title-contact {
-    margin-bottom: 30px;
-    font-weight: bold;
+footer .follow i {
+    color: #465b52;
+    padding-right: 4px;
+    cursor: pointer;
 }
-.contact-item {
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
+footer .install .row img {
+    border: 1px solid #088178;
+    border-radius: 6px;
 }
-.payment {
-    width: 50%;
+footer .install img {
+    margin: 10px 5px 15px 0;
 }
-.mr-10 {
-    margin-right: 10px;
+footer .follow i:hover, footer a:hover {
+    color: #088178;
 }

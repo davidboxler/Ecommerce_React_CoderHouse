@@ -7,9 +7,8 @@ import { Delete } from "@mui/icons-material";
 import { red } from "@mui/material/colors";
 import Modal from "../modal/Modal";
 import { Button } from "react-bootstrap";
-import database from "../../assets/firebase";
+import database from "../../services/firebase";
 import { addDoc, collection } from "firebase/firestore";
-import { async } from "@firebase/util";
 
 function Cart() {
   const { cartProducts, totalPrice, deleteProduct } = useContext(CartContext);
@@ -31,28 +30,33 @@ function Cart() {
     }),
     total: totalPrice,
   });
-  const IVA = Math.floor((totalPrice / 100) * 25);
-  const descuento = Math.floor((totalPrice / 100) * 10);
 
   useEffect(() => {
     cartProducts.length ? setLoading(false) : setLoading(true);
   }, []);
 
-  const [ finalizarCompra, setFinalizarCompra ] = useState()
+  const [finalizarCompra, setFinalizarCompra] = useState();
 
   const handleSubmit = (e) => {
-    let prevOrder = {...order, client: formData}
-    e.preventDefault();
-    setOrder({ ...order, client: formData });
-    nuevaCompra(prevOrder)
+    if (cartProducts.length === 0) {
+      alert("No tienes ningún poducto en el carrito");
+    } else {
+      let prevOrder = { ...order, client: formData };
+      e.preventDefault();
+      setOrder({ ...order, client: formData });
+      nuevaCompra(prevOrder);
+    }
   };
 
-  const nuevaCompra = async(prevOrder) => {
-    const compraFirebase = collection(database, 'compras')
-    const compraDoc = await addDoc(compraFirebase, prevOrder)
-    console.log(compraDoc.id)
-    setFinalizarCompra(compraDoc.id)
-  } 
+  const reload = () => {
+    window.location.reload(true);
+  };
+
+  const nuevaCompra = async (prevOrder) => {
+    const compraFirebase = collection(database, "compras");
+    const compraDoc = await addDoc(compraFirebase, prevOrder);
+    setFinalizarCompra(compraDoc.id);
+  };
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -68,7 +72,9 @@ function Cart() {
         <h1 className="title-cart">Tu Carrito</h1>
         <div className="top">
           <div className="top-button next">
-            <Link to={"/"}>Segir Comprando</Link>
+            <Link to={"/"}>
+              Segir Comprando
+            </Link>
           </div>
         </div>
         <div className="btn-cart">
@@ -113,20 +119,14 @@ function Cart() {
             <h1 className="sumary-title">Tus Productos</h1>
             <div className="sumary-item">
               <div className="sumary-item-text sub-total">Subtotal</div>
-              <div className="sumary-item-price">$ {totalPrice}</div>
-            </div>
-            <div className="sumary-item">
-              <div className="sumary-item-text sub-total">IVA</div>
-              <div className="sumary-item-price">$ {IVA}</div>
-            </div>
-            <div className="sumary-item">
-              <div className="sumary-item-text sub-total">Descuentos</div>
-              <div className="sumary-item-price">$ {descuento}</div>
+              <div className="sumary-item-price">
+                $ {Math.floor(totalPrice)}
+              </div>
             </div>
             <div className="sumary-item">
               <div className="sumary-item-text total">Total</div>
               <div className="sumary-item-price">
-                $ {totalPrice + IVA - descuento}
+                $ {Math.floor(totalPrice)}
               </div>
             </div>
             <div className="btn-cart-item" onClick={() => setOpenModal(true)}>
@@ -135,43 +135,47 @@ function Cart() {
           </div>
         </div>
       </div>
-      {console.log(order)}
       <Modal handleClose={() => setOpenModal(false)} open={openModal}>
-        <h2>Formulario</h2>
-              {finalizarCompra ? (
-                <>
-                  <h3>Orden generada correctamente</h3>
-                  <p>Su numero de orden es: {finalizarCompra}</p>
-                </>
-              ) : (
-                 <form onSubmit={handleSubmit}>
-                 <input
-                   type="text"
-                   name="name"
-                   placeholder="Nombre"
-                   onChange={handleChange}
-                   value={formData.name}
-                 />
-                 <input
-                   type="text"
-                   name="phone"
-                   placeholder="Telefono"
-                   onChange={handleChange}
-                   value={formData.phone}
-                 />
-                 <input
-                   type="text"
-                   name="email"
-                   placeholder="Email"
-                   onChange={handleChange}
-                   value={formData.email}
-                 />
-       
-                 <Button type="submit" className="btn-cart-item">
-                   Enviar
-                 </Button>
-               </form>
-              )}
+        <h2 className="title-form">Formulario</h2>
+        {finalizarCompra ? (
+          <>
+            <h3 className="title-order">Orden generada correctamente</h3>
+            <p className="number">Su numero de orden es: {finalizarCompra}</p>
+            <button type="submit" className="normal" onClick={reload}>
+              <Link to={"/"}>Volver</Link>
+            </button>
+          </>
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="name"
+              placeholder="Nombre"
+              onChange={handleChange}
+              value={formData.name}
+              required
+            />
+            <input
+              type="text"
+              name="phone"
+              placeholder="Telefono"
+              onChange={handleChange}
+              value={formData.phone}
+              required
+            />
+            <input
+              type="text"
+              name="email"
+              placeholder="Email"
+              onChange={handleChange}
+              value={formData.email}
+              required
+            />
+            <Button type="submit" className="normal">
+              Enviar
+            </Button>
+          </form>
+        )}
       </Modal>
     </div>
   );

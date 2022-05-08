@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Item from "../item/Item";
-import database from "../../assets/firebase";
+import database from "../../services/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import "./ItemList.scss";
 import { CircularProgress } from "@mui/material";
 
-const ListProducts = ({ children }) => {
+const ListProducts = () => {
   const [products, setProducts] = useState([]);
   const { categoria } = useParams();
   const [loading, setLoading] = useState(true);
@@ -40,18 +40,16 @@ const ListProducts = ({ children }) => {
   };
 
   return (
-    <section className="store-catalog">
-      <div className="heading">
-        <span>{children}</span>
-      </div>
-      <div className="container-products">
-        {loading ? (
+    <section id="listProducts" className="section-p1">
+      <h2>Nuestros Productos</h2>
+      <p>Llevá tu múscia a todos lados y compartí tu mundo</p>
+      <div className="pro-container">
+      {loading ? (
           <CircularProgress />
         ) : (
           products.map((product) => {
             return (
-              <div key={product.id}>
-                <Item
+                <Item key={product.id}
                   id={product.id}
                   title={product.title}
                   precio={product.precio}
@@ -60,7 +58,6 @@ const ListProducts = ({ children }) => {
                   titleShort={product.titleShort}
                   cantidad={product.cantidad}
                 />
-              </div>
             );
           })
         )}

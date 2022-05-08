@@ -1,25 +1,28 @@
 
 .container-product {
-  flex: 1;
-  margin: 5px;
-  min-width: 280px;
-  height: 350px;
+  width: 23%;
+  position: relative;
+  min-width: 250px;
+  padding: 10px 12px;
+  border: 1px solid #cce7d0;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+  margin: 15px 0;
+  transition: 0.2s ease;
+}
+.container-product:hover {
+  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+}
+.container-product img {
+  width: 100%;
+  border-radius: 20px;
+}
+.container-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
-  position: relative;
-}
-.circle {
-  height: 200px;
-  width: 200px;
-  border-radius: 50%;
-  background-color: white;
-  position: absolute;
-}
-img {
-  height: 75%;
-  z-index: 2;
+  height: 50%;
 }
 .info-product {
   opacity: 0;
@@ -28,9 +31,10 @@ img {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: 3;
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: center;
   transition: all 0.5s ease;
@@ -38,6 +42,20 @@ img {
 }
 .info-product:hover {
   opacity: 1;
+}
+.des {
+  text-align: center;
+  padding: 10px 0;
+}
+.des h5 {
+  color: white;
+  font-size: 22px;
+}
+.des h4 {
+  padding: 7px;
+  font-size: 23px;
+  font-weight: 700;
+  color: white;
 }
 .icon-product {
   width: 40px;

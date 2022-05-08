@@ -1,0 +1,37 @@
+#bannerSM {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#bannerSM  .banner-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-image: url("../../../public/assets/img/banner3.jpg");
+    min-width: 580px;
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    padding: 30px;
+}
+#bannerSM h4 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+}
+#bannerSM h2 {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 800;
+}
+#bannerSM span {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    padding-bottom: 15px;
+}
+#bannerSM  .banner-box:hover button {
+    background: #008178;
+    border: 1px solid #008178;
+}

@@ -1,72 +1,68 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Footer.scss";
 import {
   Facebook,
   Twitter,
   Instagram,
   Pinterest,
-  Room,
-  Phone,
-  MailOutline,
+  VideogameAsset
 } from "@mui/icons-material";
 
-export const Footer = () => {
+const Footer = () => {
   return (
-    <div className="container-footer">
-      <div className="left-footer">
-        <h1 className="logo">Owl House</h1>
-        <div className="desc-footer">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries.
-        </div>
-        <div className="social-container">
-          <div className="social-icon bg-1">
-            <Facebook />
-          </div>
-          <div className="social-icon bg-2">
-            <Twitter />
-          </div>
-          <div className="social-icon bg-3">
-            <Instagram />
-          </div>
-          <div className="social-icon bg-4">
-            <Pinterest />
-          </div>
+    <footer className="section-p1">
+      <div className="col">
+      <Link to={"/"} className="logo"><div>Owl House</div><VideogameAsset /></Link>
+        <h4>Contacto</h4>
+        <p>
+          <strong>Direccion:</strong> Calle de prueba 1435, Buenos Aires
+        </p>
+        <p>
+          <strong>Teléfono:</strong> +54 011 673433654
+        </p>
+        <p>
+          <strong>Email:</strong> pruebacorreo@gmail.com
+        </p>
+        <div className="follow">
+            <h4>Seguinos en nuestras redes</h4>
+            <div className="icon">
+                <i><Facebook /></i>
+                <i><Twitter /></i>
+                <i><Instagram /></i>
+                <i><Pinterest /></i>
+            </div>
         </div>
       </div>
-      <div className="center-footer">
-        <div className="title-footer">Categorías</div>
-        <ul className="list-footer">
-          <li className="list-item-footer">Inicio</li>
-          <li className="list-item-footer">Carrito</li>
-          <li className="list-item-footer">Accesorios</li>
-          <li className="list-item-footer">Teclados</li>
-          <li className="list-item-footer">Monitores</li>
-          <li className="list-item-footer">Sillas Gamer</li>
-          <li className="list-item-footer">Parlantes</li>
-          <li className="list-item-footer">Celulares</li>
-          <li className="list-item-footer">Notebooks</li>
-        </ul>
+
+      <div className="col">
+        <h4>Nosotros</h4>
+       <Link to={"/nosotros"}>Acerca de nosotros</Link>
+       <Link to={"/envios"}>Información de Envíos</Link>
+       <Link to={"/politicadeprivecidad"}>Politíca de Privacidad</Link>
+       <Link to={"/terminosycondiciones"}>Terminos y Condiciones</Link>
+       <Link to={"/contacto"}>Contacta con nosotros</Link>
       </div>
-      <div className="right-footer">
-        <div className="title-contact">Contact</div>
-        <div className="contact-item">
-          <Room className="mr-10" /> calle falsa 123, miami florida 8987
-        </div>
-        <div className="contact-item">
-          <Phone className="mr-10" /> +54 011 6734336
-        </div>
-        <div className="contact-item">
-          <MailOutline className="mr-10" /> contact@gmail.com
-        </div>
-        <div className="payment">
-          <img src="https://i.ibb.co/Qfvn4z6/payment.png" />
-        </div>
+
+      <div className="col">
+        <h4>Mi cuenta</h4>
+       <Link to={"/login"}>Registrarse</Link>
+       <Link to={"/carrito"}>Mi carrito</Link>
+       <Link to={"/favoritos"}>Mis favoritos</Link>
+       <Link to={"/contacto"}>Ayuda</Link>
       </div>
-    </div>
+
+      <div className="col install">
+        <h4>Instalá nuestra App</h4>
+        <p>Desde App Store o Google Play</p>
+        <div className="row"> 
+            <img src="../../assets/img/app.jpg" alt="" /> 
+            <img src="../../assets/img/play.jpg" alt="" />
+        </div>
+        <p>Todas las formas de pago</p>
+        <img src="../../assets/img/pay.png" alt="" />
+      </div>
+    </footer>
   );
 };
 

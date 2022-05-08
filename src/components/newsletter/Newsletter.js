@@ -1,18 +1,19 @@
-import React from 'react'
-import './Newsletter.scss';
-import { Send } from '@mui/icons-material'
+import React from "react";
+import "./Newsletter.scss";
 
 export const Newsletter = () => {
   return (
-    <div className='container-news'>
-        <h1 className='title-news'>Subscríbete!</h1>
-        <div className='description-news'>Recibe noticias sobre descuentos y ofertas!</div>
-            <div className='input-container'>
-                <input placeholder='email' />
-                <button className='button-news'><Send /></button>
-            </div>
-    </div>
-  )
-}
+    <section id="newsletter" className="section-p1 section-m1">
+      <div className="newstext">
+        <h4>Subscríbete!</h4>
+        <p>Ingresa tu Email y recibe noticias sobre <span>descuentos y ofertas!</span></p>
+      </div>
+      <div className="form">
+        <input type="text" placeholder="Ingresa tu email" />
+        <button className="normal">Enviar</button>
+      </div>
+    </section>
+  );
+};
 
 export default Newsletter;

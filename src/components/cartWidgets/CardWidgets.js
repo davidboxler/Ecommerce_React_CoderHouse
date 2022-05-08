@@ -6,7 +6,7 @@ import CartContext from "../../context/CartContext";
 import { red } from "@mui/material/colors";
 import { Link } from "react-router-dom";
 
-export const CardWidgets = () => {
+const CardWidgets = () => {
   const { cartProducts, deleteProduct } = useContext(CartContext);
 
   const [anchorEl, setAnchorEl] = useState(null);

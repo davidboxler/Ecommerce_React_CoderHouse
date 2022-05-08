@@ -1,11 +1,12 @@
 @import '../../styles/variables.scss';
 
-.store-catalog {
-  background: $light-bg;
+#listProducts {
+  text-align: center;
 }
 
-.container-products {
+#listProducts .pro-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 2rem;
+  grid-template-columns: repeat(4, 250px);
+  gap: 1.5rem;
+  justify-content: center;
 }

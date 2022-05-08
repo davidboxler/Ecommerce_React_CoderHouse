@@ -1,7 +1,12 @@
+import React from 'react'
+import NotFound from '../components/notFound/NotFound';
+
 
 function NotFoundPage() {
     return(
-        <h1>Error al cargar la página</h1>
+        <>
+           <NotFound />
+        </>
     )
 }
 

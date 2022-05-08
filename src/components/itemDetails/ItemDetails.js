@@ -38,7 +38,7 @@ const ItemDetails = ({ data }) => {
       <div className="panel">
         <div className="column">
           <div className="galery">
-            <img src={data.imagen} alt="producto"></img>
+            <img src={`/${data.imagen}`} alt="producto" />
           </div>
           <div className="description">
             <h4>Descripción</h4>

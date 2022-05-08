@@ -5,8 +5,10 @@ import {
   ShoppingCartOutlined,
   SearchOutlined,
   FavoriteBorderOutlined,
+  Star,
 } from "@mui/icons-material";
 import "./Item.scss";
+import { amber, grey } from "@mui/material/colors";
 
 function Item(props) {
   const { addProductToCart } = useContext(CartContext);
@@ -18,21 +20,31 @@ function Item(props) {
 
   return (
     <div className="container-product">
-      <div className="circle"></div>
       <img src={props.imagen} />
       <div className="info-product">
-        <div className="icon-product">
-          <Link to={`/productos/${props.id}`}>
-            <SearchOutlined />
-          </Link>
+        <div className="container-icon">
+          <div className="icon-product">
+            <Link to={`/productos/${props.id}`}>
+              <SearchOutlined sx={{ color: grey[900] }} />
+            </Link>
+          </div>
+          <div className="icon-product icon" onClick={addToCart}>
+            <ShoppingCartOutlined sx={{ color: grey[900] }} />
+          </div>
+          <div className="icon-product icon">
+            <FavoriteBorderOutlined sx={{ color: grey[900] }} />
+          </div>
         </div>
-        <div className="icon-product icon" onClick={addToCart}>
-          {/* <div className="button add" onClick={addToCart}> */}
-            <ShoppingCartOutlined />
-          {/* </div> */}
-        </div>
-        <div className="icon-product icon">
-          <FavoriteBorderOutlined />
+        <div className="des">
+          <h5>{props.titleShort}</h5>
+          <div className="star">
+            <Star sx={{ color: amber[500]}} />
+            <Star sx={{ color: amber[500]}} />
+            <Star sx={{ color: amber[500]}} />
+            <Star sx={{ color: amber[500]}} />
+            <Star sx={{ color: amber[500]}} />
+          </div>
+          <h4>$ {props.precio}</h4>
         </div>
       </div>
     </div>

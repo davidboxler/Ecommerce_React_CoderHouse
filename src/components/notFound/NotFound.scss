@@ -1,0 +1,16 @@
+
+#not-found {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") center;
+    justify-content: center;
+    height: 50vw;
+    background-size: cover;
+}
+.not-found-title {
+    display: block;
+}
+.not-found-title h2 {
+    margin-bottom: 10px;
+}

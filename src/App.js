@@ -10,6 +10,8 @@ import CategoryPage from './pages/CategoryPage';
 import Footer from './components/footer/Footer';
 import { CartProvider } from "./context/CartContext";
 import Newsletter from "./components/newsletter/Newsletter";
+import AboutPage from "./pages/AboutPage";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   return (
@@ -20,10 +22,11 @@ function App() {
           <Route exact path="/" element={<HomePage />} />
           <Route exact path="/productos/:id" element={<ProductPage />} />
           <Route exact path="/categoria/:categoria" element={<CategoryPage />} />
-          <Route exact path="/nosotros" element={<ContactPage />} />
-          <Route exact path="/login" element={<NotFoundPage />} />
-          <Route exact path="/registro" element={<NotFoundPage />} />
+          <Route exact path="/favoritos" element={<NotFoundPage />} />
+          <Route exact path="/contacto" element={<ContactPage />} />
+          <Route exact path="/login" element={<LoginPage />} />
           <Route exact path="/carrito" element={<CartPage />} />
+          <Route exact path="/nosotros" element={<AboutPage />} />
           <Route exact path="*" element={<NotFoundPage />} />
         </Routes>
         <Newsletter />

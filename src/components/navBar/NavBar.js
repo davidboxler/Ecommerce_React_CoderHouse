@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./NavBar.scss";
 import { Link } from "react-router-dom";
-import SearchIcon from "@mui/icons-material/Search";
 import CardWidgets from "../cartWidgets/CardWidgets";
-import { VideogameAsset } from "@mui/icons-material";
-import database from "../../assets/firebase";
+import { CloseOutlined, MenuOpenOutlined, VideogameAsset } from "@mui/icons-material";
+import database from "../../services/firebase";
 import { Menu, MenuItem, Button } from "@mui/material";
 import { collection, getDocs } from "firebase/firestore";
 
@@ -40,25 +39,14 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="container">
-      <div className="wrapper">
-        <div className="left">
-          <div className="language">ES</div>
-          <div className="search-container">
-            <input />
-            <SearchIcon className="search" />
-          </div>
-        </div>
-        <div className="center">
-          <Link to={"/"} className="logo">
-            <div>Owl House</div>
-            <VideogameAsset className="btn-icon" />
-          </Link>
-        </div>
-        <div className="right">
+    <section id="header">
+      <Link to={"/"} className="logo"><div>Owl House</div><VideogameAsset /></Link>
+    
+      <div>
+          <ul id="navbar">
           {titles.map((page) => {
             return page.title === "Categorías" ? (
-              <div className="menu-item" key={page.id}>
+              <li key={page.id}>
                 <Button className="btn-category"
                   aria-controls={open ? "basic-menu" : undefined}
                   aria-haspopup="true"
@@ -89,19 +77,24 @@ const Navbar = () => {
                     <Link to={`${page.url}/monitores`}>Monitores</Link>
                   </MenuItem>
                 </Menu>
-              </div>
+              </li>
             ) : (
-              <div className="menu-item" key={page.id}>
+              <li key={page.id}>
                 <Link to={page.url}>{page.title}</Link>
-              </div>
+              </li>
             );
           })}
-          <div className="menu-item">
-            <CardWidgets />
-          </div>
-        </div>
+          <li>
+            <Link to={""}><CardWidgets /></Link> 
+          </li>
+          <Link to={""} id="close"><CloseOutlined /></Link>
+          </ul>
       </div>
-    </div>
+      <div id="mobile">
+          <Link to={""}><CardWidgets /></Link>
+          <Link to={""} id="bar"><MenuOpenOutlined /></Link>
+      </div>
+    </section>
   );
 };
 

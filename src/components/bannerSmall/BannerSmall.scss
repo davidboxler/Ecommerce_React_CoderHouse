@@ -1,0 +1,35 @@
+#bannerSmall {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 80px;
+}
+#bannerSmall  .banner-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-image: url("../../../public/assets/img/b4.jpg");
+    min-width: 30%;
+    height: 30vh;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+#bannerSmall h2{
+    color: #fff;
+    font-weight: 900;
+    font-size: 22px;
+}
+#bannerSmall h3{
+    color: #ec544c;
+    font-weight: 800;
+    font-size: 15px;
+}
+#bannerSmall  .banner-box2{
+    background-image: url("../../../public/assets/img/b7.jpg");
+}
+#bannerSmall  .banner-box3{
+    background-image: url("../../../public/assets/img/b18.jpg");
+}
