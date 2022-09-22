@@ -5,6 +5,7 @@
 - Este proyecto resulta como proyecto final de un curso hecho en CoderHouse, se trata de la construcción de una pagina web que funciona como ecommerce a modo de mostrar los productos de una tienda, separarlos por categorias, poder adquirirlos mediante una compra, poder registrarse en la misma pagina, enviar consultas. </p>
 <p> - Así mismo tambien queda pendiente la construcción de una tabla de productos favoritos, la registracion validad por seciones en los usuarios, un checkout preciso con datos, la integracion de Mercado Pago para simular una compra real, y el envío de todos los detalles por email. </p> 
 <p> - El siguiente paso de este proyecto es sumarle una estructura de Backend construída en Node.js y utilizar MongoDB como base de datos.</p>
+<img width="100%" src="https://github.com/davidboxler/ecommerce_react_CoderHouse/blob/master/public/proyecto8.png" alt="banner-ecommerce">
 
 #### Construido con: 
 
