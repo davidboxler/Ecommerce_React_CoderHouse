@@ -30,8 +30,5 @@
 - `$ npm install --save firebase`
 - `$ npm install @mui/material @emotion/react @emotion/styled`
 
-<h1>GitHub</h1>
-<p>https://github.com/davidboxler/ecommerce_react_CoderHouse</p>
-
 <h1>Funcionamiento</h1>
 <a href='https://user-images.githubusercontent.com/68159332/167328101-af156a81-f203-412c-b174-c76850c172c8.gif'>Prueba funcionamiento</a>
