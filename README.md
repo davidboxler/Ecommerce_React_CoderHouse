@@ -21,7 +21,7 @@
 
 #### En consola 
 
-`$ npm install`
+- `$ npm install`
 
 #### Dependencias 
 
